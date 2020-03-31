@@ -35,7 +35,7 @@ void pop()
 	else 
     { 
 		int x = a[top--]; 
-        cout<<top<<" pop from stack"<<"\n";
+        cout<<"index "<<top<<" pop from stack"<<"\n";
      	for(int i=0;i< top;i++)
         {   
             cout<<a[i]<<" ";
@@ -43,17 +43,17 @@ void pop()
         cout<<"\n";
 	} 
 } 
-int peek() 
+void peek() 
 { 
 	if (top < 0)
     { 
 		cout << "Stack is Empty"; 
-		return 0; 
+
 	} 
 	else 
     { 
-		int x = a[top]; 
-		return x; 
+		int x = a[--top]; 
+		cout<<x<<"\n";
 	} 
 } 
 
@@ -69,8 +69,10 @@ int main()
 	push(20); 
   	push(30); 
 	push(50); 
-  	push(60);
+ 
 	pop();
+       peek();
+    
 
 
 	return 0; 
