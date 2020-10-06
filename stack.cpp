@@ -1,8 +1,8 @@
-/* C++ program to implement basic stack 
+/* C++ program to implement basic stack in array
 operations */
 
 #include <iostream> 
-int MAX =100;
+int MAX =10;
 int top = -1;
 int a[100];
 using namespace std; 
@@ -12,12 +12,13 @@ void push(int x)
 { 
 	if (top >= (MAX - 1))
     { 
-		cout << "Stack Overflow";  
+		cout << "Stack Overflow\n";  
 	} 
 	else 
     { 
-		a[top++]= x; 
-      	for(int i=0;i< top;i++)
+		top++;
+		a[top]= x; 
+      	for(int i=0;i <= top;i++)
         {
             cout<<a[i]<<" ";
         }
@@ -30,30 +31,32 @@ void pop()
 { 
 	if (top < 0)
     { 
-		cout << "Stack Underflow"; 
+		cout << "Stack Underflow"<<"\n "; 
 	} 
 	else 
     { 
-		int x = a[top--]; 
-        cout<<"index "<<top<<" pop from stack"<<"\n";
-     	for(int i=0;i< top;i++)
+		
+		int x = a[top]; 
+		top--;
+        cout<<x<<" pop from stack\n";
+     	for(int i=0;i<= top;i++)
         {   
             cout<<a[i]<<" ";
         }
         cout<<"\n";
 	} 
 } 
-void peek() 
+int peek() 
 { 
 	if (top < 0)
     { 
-		cout << "Stack is Empty"; 
-
+		cout << "Stack is Empty\n"; 
+		return 0; 
 	} 
 	else 
     { 
-		int x = a[--top]; 
-		cout<<x<<"\n";
+		int x = a[top]; 
+		return x; 
 	} 
 } 
 
@@ -65,14 +68,36 @@ bool isEmpty()
 // Driver program to test above functions 
 int main() 
 {  
-	push(10); 
-	push(20); 
-  	push(30); 
-	push(50); 
- 
-	pop();
-       peek();
-    
+	int x;
+	int round = 1;
+	do
+	{
+		int choice;
+		cout<<"Push - 1 \nPop - 2\nEnter your choice";
+		cin>>choice;
+		switch (choice)
+		{
+		case 1:
+			int element;
+			printf("Enter the element \n");
+			scanf("%d",&element);
+			push(element);
+			element = 0;
+			break;
+		case 2:
+			
+			pop();
+			break;
+		default:
+			break;
+		}	
+
+		cout<<" ---------------- "<<round <<" round completed ---------------- \n";
+		printf("Do you want to exit press 0 or stay press 1\n");
+		scanf("%d", &x);
+		round++;
+	} while (x != 0);
+	
 
 
 	return 0; 
