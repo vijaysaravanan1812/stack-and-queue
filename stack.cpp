@@ -1,4 +1,5 @@
-/* C++ program to implement basic stack in array
+/* C++ program to implement basic stack in static
+ array
 operations */
 
 #include <iostream> 
