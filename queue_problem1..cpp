@@ -11,6 +11,8 @@ void enqueue(int element)
     if (front == -1 && rear == -1)
     {
         front = 0; rear = 0;
+        queue[rear] = element;
+
     }
     //To check if  queue is full 
     else if ((rear + 1) % n == front)
@@ -20,8 +22,9 @@ void enqueue(int element)
     else
     {
         rear = (rear+1)%n;
+        queue[rear] = element;
     }
-    queue[rear] = element;
+   // printf("rear = %d",rear);
 }
 
 void dequeue()
